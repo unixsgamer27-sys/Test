@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030b14">
+  <meta name="description" content="Team 5 — Interactive Computer Engineering student portfolios.">
+  <title>Team 5 | Computer Engineering Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home" id="brandLink" aria-label="Team 5 home">
+        <span class="brand-mark">◇</span><span>TEAM <b>5</b></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active" data-home-link>Home</a>
+        <a href="#about" class="nav-link" data-section-link="about">About</a>
+        <a href="#skills" class="nav-link" data-section-link="skills">Skills</a>
+        <a href="#projects" class="nav-link" data-section-link="projects">Projects</a>
+        <a href="#contact" class="nav-link" data-section-link="contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch to light theme" title="Switch theme">
+        <span id="themeIcon" aria-hidden="true">☼</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Homepage intentionally shows only the five team cards. -->
+    <section id="home" class="home-view">
+      <div class="hero container">
+        <div class="eyebrow"><span class="eyebrow-line"></span> DIFFERENT SKILLS <span>•</span> SAME GOAL</div>
+        <h1>Meet Our <span class="gradient-text">Team</span></h1>
+        <p class="hero-copy">Five aspiring Computer Engineers, one journey. We bring different strengths, but we share the same passion for technology, innovation, and a better future.</p>
+        <div class="hero-meta">
+          <span class="status-dot"></span><span>BSCpE STUDENT PORTFOLIOS</span>
+          <span class="meta-divider">/</span><span id="liveDate">Loading date…</span>
+          <span class="meta-divider">/</span><span id="liveTime">--:--:--</span>
+        </div>
+      </div>
+
+      <section class="team-section container" aria-label="Meet the five team members">
+        <div class="team-grid" id="teamGrid"></div>
+        <div class="scroll-hint"><span class="scroll-line"></span> SELECT A PROFILE TO EXPLORE <span class="scroll-line"></span></div>
+      </section>
+    </section>
+
+    <!-- A single profile view is rendered here after a member card is selected. -->
+    <section id="profileView" class="profile-view hidden" aria-live="polite">
+      <div class="profile-top container">
+        <button class="back-button" id="backToTeam"><span aria-hidden="true">←</span> Back to Team</button>
+        <div id="profileHeader"></div>
+      </div>
+      <div class="container profile-content">
+        <div class="profile-tabs" role="tablist" aria-label="Portfolio sections">
+          <button class="profile-tab active" data-tab="about" role="tab" aria-selected="true">About Me</button>
+          <button class="profile-tab" data-tab="skills" role="tab" aria-selected="false">Skills</button>
+          <button class="profile-tab" data-tab="projects" role="tab" aria-selected="false">Projects</button>
+          <button class="profile-tab" data-tab="interests" role="tab" aria-selected="false">Interests</button>
+          <button class="profile-tab" data-tab="goals" role="tab" aria-selected="false">Career Goals</button>
+          <button class="profile-tab" data-tab="contact" role="tab" aria-selected="false">Contact</button>
+        </div>
+        <div id="profilePanel" class="profile-panel"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#home"><span class="brand-mark">◇</span><span>TEAM <b>5</b></span></a>
+      <p>Built with curiosity, teamwork, and code.</p>
+      <span class="footer-copy">© <span id="year"></span> Team 5 · BSCpE</span>
+    </div>
+  </footer>
+
+  <!-- One reusable modal is used for skill and project details. -->
+  <div class="modal-backdrop hidden" id="detailModal" role="presentation">
+    <section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close details">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
